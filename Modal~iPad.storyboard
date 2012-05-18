@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="3">
+    <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+    </dependencies>
+    <scenes>
+        <!--Modal View Controller - Information-->
+        <scene sceneID="9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="" id="2" customClass="ModalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="13">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">How to use Cordova as a Component
+Beginning with Cordova 1.4, you can use Cordova as a component in your iOS applications. This component is code-named "Cleaver".
+New Cordova-based applications created using the Xcode template provided in Cordova 1.4 or greater uses Cleaver, and this template is considered the reference implementation for Cleaver.
+It is recommended that you follow the Cordova.framework instructions below, the CordovaLib sub-project instructions are for Cordova core developers or users that have custom CordovaLib project code (for ease of debugging the core).
+Pre-requisites
+1. Cordova1.4.1orgreaterinstalled
+2. Xcode4.2orgreaterinstalled
+3. Cordova.plist file (see 'Cordova Settings' guide)
+Adding Cleaver to your Xcode project (Cordova.framework)
+1. Copy the "Cordova.plist" file into your project folder on disk
+2. Drag and drop the "Cordova.plist" file into the Project Navigator of Xcode
+3. Choose the radio-button "Create groups for any added folders"
+4. Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+(the "Add Files..." sheet). Make sure the "Created groups for any added folders" radio-button is selected
+5. Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+folder (the "Go to the folder:" sheet)
+6. Enter "/Users/Shared/Cordova/Frameworks/Cordova.framework" in the "Go to the folder:" sheet and
+then press the "Go" button
+7. Press the "Add" button in the "Add Files..." sheet
+8. Select "Cordova.framework" in the Project Navigator
+9. Press the key combination Option-Command-1 to show the File Inspector
+10. Choose "Absolute Path" in the File Inspector for the drop-down menu for Location
+11. Click on the project icon in the Project Navigator, select your Target, then select the "Build Phase" tab
+12. Expand "Link Binaries with Libraries"
+13. Click on the "+" button, and add these frameworks (and optionally in the Project Navigator, move them under the Frameworks group):
+AddressBook.framework AddressBookUI.framework AudioToolbox.framework AVFoundation.framework CoreLocation.framework MediaPlayer.framework QuartzCore.framework SystemConfiguration.framework MobileCoreServices.framework CoreMedia.framework
+Adding Cleaver to your Xcode project (CordovaLib sub-project)
+How to use Cordova 1.7.0 as a Component 1/3
+￼1. Copy the "Cordova.plist" file into your project folder on disk
+2. Drag and drop the "Cordova.plist" file into the Project Navigator of Xcode
+3. Choose the radio-button "Create groups for any added folders"
+4. Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+(the "Add Files..." sheet). Make sure the "Created groups for any added folders" radio-button is selected
+5. Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+folder (the "Go to the folder:" sheet)
+6. Enter "~/Documents/CordovaLib/" in the "Go to the folder:" sheet and then press the "Go" button
+7. Select the "VERSION" file in the the "Add Files..." sheet
+8. Press the "Add" button in the "Add Files..." sheet
+9. Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+(the "Add Files..." sheet). Make sure the "Created groups for any added folders" radio-button is selected
+10. Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+folder (the "Go to the folder:" sheet)
+11. Enter "~/Documents/CordovaLib/CordovaLib.xcodeproj" in the "Go to the folder:" sheet and then press
+the "Go" button
+12. Press the "Add" button in the "Add Files..." sheet
+13. Select "CordovaLib.xcodeproj" in the Project Navigator
+14. Press the key combination Option-Command-1 to show the File Inspector
+15. Choose "Relative to CORDOVALIB" in the File Inspector for the drop-down menu for Location
+16. Click on the project icon in the Project Navigator, select your Project, then select the "Build Settings" tab
+17. Enter "Header Search Paths" in the search field
+18. Add "$(CORDOVALIB)/Classes" and check the Recursive checkbox - for the "Header Search Paths"
+value
+19. Add "-all_load" and "-Obj-C" - for the "Other Linker Flags" value
+20. Click on the project icon in the Project Navigator, select your Target, then select the "Build Phases" tab
+21. Expand "Link Binaries with Libraries"
+22. Click on the "+" button, and add these frameworks (and optionally in the Project Navigator, move them under the Frameworks group):
+AddressBook.framework AddressBookUI.framework AudioToolbox.framework AVFoundation.framework CoreLocation.framework MediaPlayer.framework QuartzCore.framework SystemConfiguration.framework MobileCoreServices.framework CoreMedia.framework
+23. Expand "Target Dependencies" - the top box labeled like this if you have multiple boxes!
+24. Click on the "+" button, and add the "CordovaLib" build product
+25. Expand "Link Binaries with Libraries" - the top box labeled like this if you have multiple boxes!
+26. Click on the "+" button, and add libCordova.a
+Adding new classes to CordovaLib sub-project
+In general if you are only modifying or debugging existing CordovaLib classes you should be OK with just the above steps. However if you are adding new classes you need to follow a few additional steps:
+1. In your project's Frameworks directory in Xcode, remove "Cordova.framework".
+2. Just to reiterate step 18 and 20 above: make sure your dependencies and libraries are in the top-most boxes
+How to use Cordova 1.7.0 as a Component 2/3
+under Build Phases for your project's Target.
+3. In your project's Target's Build Settings, search for "Other Linker Flags". Add "-Obj-C" and "-all_load" to this.
+Using CDVViewController in your code
+1. Add this header if you used the Cordova.framework:
+#import &lt;Cordova/CDVViewController.h>
+2. Add this header if you used the CordovaLib sub-project: #import "CDVViewController.h"
+3. Instantiate a new CDVViewController, and retain it somewhere: CDVViewController* viewController = [CDVViewController new];
+4. (OPTIONAL) Set the wwwFolderName property (defaults to "www"): viewController.wwwFolderName = @"myfolder";
+5. (OPTIONAL) Set the startPage property (defaults to "index.html"): viewController.startPage = @"mystartpage.html";
+6. (OPTIONAL) Set the useSplashScreen property (defaults to NO): viewController.useSplashScreen = YES;
+7. Set the view frame (always set this as the last property): viewController.view.frame = CGRectMake(0, 0, 320, 480);
+8. AddCleavertoyourview:
+[myView addSubview:viewController.view];
+Adding your HTML, CSS and JavaScript assets
+1. Create a new folder in your project on disk, for example, name it "www"
+2. Put your HTML, CSS and JavaScript assets into this folder
+3. Drag and drop the folder into the Project Navigator of Xcode
+4. Choose the radio-button "Create folder references for any added folders"
+5. Set the appropriate "wwwFolderName" and "startPage" properties for the folder you created in (1) or use the defaults (see previous section) when you instantiate the CDVViewController.
+/*
+if you created a folder called 'myfolder' and you want the file 'mypage.html' in it to be the startPage
+*/
+viewController.wwwFolderName = @"myfolder"; viewController.startPage = @"mypage.html"
+How to use Cordova 1.7.0 as a Component 3/3</mutableString>
+                                <color key="textColor" red="0.65490198135375977" green="0.65490198135375977" blue="0.65490198135375977" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Information" id="5">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="14">
+                            <connections>
+                                <action selector="done:" destination="2" id="15"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="561" y="-714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="11">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="infoNavigationController" id="3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.6549019814" green="0.6549019814" blue="0.6549019814" alpha="1" colorSpace="deviceRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="7"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-384" y="-714"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="ModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <meta charset="utf-8">
+            
+            
+            <!-- iPad/iPhone specific css below, add after your main css >
+             <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+             <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+             -->
+            <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+            <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+            <script type="text/javascript">
+                
+                
+                // If you want to prevent dragging, uncomment this section
+                /*
+                 function preventBehavior(e) 
+                 { 
+                 e.preventDefault(); 
+                 };
+                 document.addEventListener("touchmove", preventBehavior, false);
+                 */
+                
+                /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+                 see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+                 for more details -jm */
+                /*
+                 function handleOpenURL(url)
+                 {
+                 // TODO: do something with the url passed in.
+                 }
+                 */
+                
+                function onBodyLoad()
+                {		
+                    document.addEventListener("deviceready", onDeviceReady, false);
+                }
+                
+                /* When this function is called, Cordova has been initialized and is ready to roll */
+                /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+                 see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+                 for more details -jm */
+                function onDeviceReady()
+                {
+                    // do your thing!
+                    navigator.notification.alert("Cordova is working")
+                }
+                
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        <center><H1>￼How to use Cordova as a Component</center>
+        
+        
+        <p><br></p>
+        
+        <p>Beginning with Cordova 1.4, you can use Cordova as a component in your iOS applications. This component is code-named &ldquo;Cleaver&rdquo;.</p>
+        
+        <p>New Cordova-based applications created using the Xcode template provided in Cordova 1.4 or greater uses Cleaver, and this template is considered the reference implementation for Cleaver.</p>
+        
+        <p>It is recommended that you follow the Cordova.framework instructions below, the CordovaLib sub-project instructions are for Cordova core developers or users that have custom CordovaLib project code (for ease of debugging the core).</p>
+        
+        <h3>Pre-requisites</h3>
+        
+        <ol>
+            <li>Cordova 1.4.1 or greater installed</li>
+            <li>Xcode4.2 or greater installed</li>
+            <li>Cordova.plist file (see &lsquo;Cordova Settings&rsquo; guide)
+                Adding Cleaver to your Xcode project (Cordova.framework)</li>
+            <li>Copy the &ldquo;Cordova.plist&rdquo; file into your project folder on disk</li>
+            <li>Drag and drop the &ldquo;Cordova.plist&rdquo; file into the Project Navigator of Xcode</li>
+            <li>Choose the radio-button &ldquo;Create groups for any added folders&rdquo;</li>
+            <li>Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+                (the &ldquo;Add Files&hellip;&rdquo; sheet). Make sure the &ldquo;Created groups for any added folders&rdquo; radio-button is selected</li>
+            <li>Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+                folder (the &ldquo;Go to the folder:&rdquo; sheet)</li>
+            <li>Enter &ldquo;/Users/Shared/Cordova/Frameworks/Cordova.framework&rdquo; in the &ldquo;Go to the folder:&rdquo; sheet and
+                then press the &ldquo;Go&rdquo; button</li>
+            <li>Press the &ldquo;Add&rdquo; button in the &ldquo;Add Files&hellip;&rdquo; sheet</li>
+            <li>Select &ldquo;Cordova.framework&rdquo; in the Project Navigator</li>
+            <li>Press the key combination Option-Command-1 to show the File Inspector</li>
+            <li>Choose &ldquo;Absolute Path&rdquo; in the File Inspector for the drop-down menu for Location</li>
+            <li>Click on the project icon in the Project Navigator, select your Target, then select the &ldquo;Build Phase&rdquo; tab</li>
+            <li>Expand &ldquo;Link Binaries with Libraries&rdquo;</li>
+            <li><p>Click on the &ldquo;+&rdquo; button, and add these frameworks (and optionally in the Project Navigator, move them under the Frameworks group):</p>
+                
+                <pre><code>AddressBook.framework
+                    AddressBookUI.framework
+                    AudioToolbox.framework
+                    AVFoundation.framework
+                    CoreLocation.framework
+                    MediaPlayer.framework
+                    QuartzCore.framework
+                    SystemConfiguration.framework
+                    MobileCoreServices.framework
+                    CoreMedia.framework
+                </code></pre></li>
+        </ol>
+        
+        
+        <p>Adding Cleaver to your Xcode project (CordovaLib sub-project)</p>
+        
+        <ol>
+            <li>Copy the &ldquo;Cordova.plist&rdquo; file into your project folder on disk</li>
+            <li>Drag and drop the &ldquo;Cordova.plist&rdquo; file into the Project Navigator of Xcode</li>
+            <li>Choose the radio-button &ldquo;Create groups for any added folders&rdquo;</li>
+            <li>Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+                (the &ldquo;Add Files&hellip;&rdquo; sheet). Make sure the &ldquo;Created groups for any added folders&rdquo; radio-button is selected</li>
+            <li>Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+                folder (the &ldquo;Go to the folder:&rdquo; sheet)</li>
+            <li>Enter &ldquo;~/Documents/CordovaLib/&rdquo; in the &ldquo;Go to the folder:&rdquo; sheet and then press the &ldquo;Go&rdquo; button</li>
+            <li>Select the &ldquo;VERSION&rdquo; file in the the &ldquo;Add Files&hellip;&rdquo; sheet</li>
+            <li>Press the &ldquo;Add&rdquo; button in the &ldquo;Add Files&hellip;&rdquo; sheet</li>
+            <li>Press the key combination Option-Command-A, which should drop down a sheet to add files to your project
+                (the &ldquo;Add Files&hellip;&rdquo; sheet). Make sure the &ldquo;Created groups for any added folders&rdquo; radio-button is selected</li>
+            <li>Press the key combination Shift-Command-G, which should drop down another sheet for you to go to a
+                folder (the &ldquo;Go to the folder:&rdquo; sheet)</li>
+            <li>Enter &ldquo;~/Documents/CordovaLib/CordovaLib.xcodeproj&rdquo; in the &ldquo;Go to the folder:&rdquo; sheet and then press
+                the &ldquo;Go&rdquo; button</li>
+            <li>Press the &ldquo;Add&rdquo; button in the &ldquo;Add Files&hellip;&rdquo; sheet</li>
+            <li>Select &ldquo;CordovaLib.xcodeproj&rdquo; in the Project Navigator</li>
+            <li>Press the key combination Option-Command-1 to show the File Inspector</li>
+            <li>Choose &ldquo;Relative to CORDOVALIB&rdquo; in the File Inspector for the drop-down menu for Location</li>
+            <li>Click on the project icon in the Project Navigator, select your Project, then select the &ldquo;Build Settings&rdquo; tab</li>
+            <li>Enter &ldquo;Header Search Paths&rdquo; in the search field</li>
+            <li>Add &ldquo;$(CORDOVALIB)/Classes&rdquo; and check the Recursive checkbox - for the &ldquo;Header Search Paths&rdquo;
+                value</li>
+            <li>Add &ldquo;-all_load&rdquo; and &ldquo;-Obj-C&rdquo; - for the &ldquo;Other Linker Flags&rdquo; value</li>
+            <li>Click on the project icon in the Project Navigator, select your Target, then select the &ldquo;Build Phases&rdquo; tab</li>
+            <li>Expand &ldquo;Link Binaries with Libraries&rdquo;</li>
+            <li>Click on the &ldquo;+&rdquo; button, and add these frameworks (and optionally in the Project Navigator, move them under the Frameworks group):
+                AddressBook.framework AddressBookUI.framework AudioToolbox.framework AVFoundation.framework CoreLocation.framework MediaPlayer.framework QuartzCore.framework SystemConfiguration.framework MobileCoreServices.framework CoreMedia.framework</li>
+            <li>Expand &ldquo;Target Dependencies&rdquo; - the top box labeled like this if you have multiple boxes!</li>
+            <li>Click on the &ldquo;+&rdquo; button, and add the &ldquo;CordovaLib&rdquo; build product</li>
+            <li>Expand &ldquo;Link Binaries with Libraries&rdquo; - the top box labeled like this if you have multiple boxes!</li>
+            <li>Click on the &ldquo;+&rdquo; button, and add libCordova.a
+                Adding new classes to CordovaLib sub-project
+                In general if you are only modifying or debugging existing CordovaLib classes you should be OK with just the above steps. However if you are adding new classes you need to follow a few additional steps:</li>
+            <li>In your project&rsquo;s Frameworks directory in Xcode, remove &ldquo;Cordova.framework&rdquo;.</li>
+            <li>Just to reiterate step 18 and 20 above: make sure your dependencies and libraries are in the top-most boxes
+                How to use Cordova 1.7.0 as a Component 2/3</li>
+        </ol>
+        
+        
+        <p>under Build Phases for your project&rsquo;s Target.
+        3. In your project&rsquo;s Target&rsquo;s Build Settings, search for &ldquo;Other Linker Flags&rdquo;. Add &ldquo;-Obj-C&rdquo; and &ldquo;-all_load&rdquo; to this.</p>
+        
+        <p>Using CDVViewController in your code</p>
+        
+        <ol>
+            <li><p>Add this header if you used the Cordova.framework:</p>
+                
+                <p> <strong>#import &lt;Cordova/CDVViewController.h></strong></p></li>
+            <li><p>Add this header if you used the CordovaLib sub-project: #import &ldquo;CDVViewController.h&rdquo;</p></li>
+            <li>Instantiate a new CDVViewController, and retain it somewhere: CDVViewController* viewController = [CDVViewController new];</li>
+            <li>(OPTIONAL) Set the wwwFolderName property (defaults to &ldquo;www&rdquo;): viewController.wwwFolderName = @&ldquo;myfolder&rdquo;;</li>
+            <li>(OPTIONAL) Set the startPage property (defaults to &ldquo;index.html&rdquo;): viewController.startPage = @&ldquo;mystartpage.html&rdquo;;</li>
+            <li>(OPTIONAL) Set the useSplashScreen property (defaults to NO): viewController.useSplashScreen = YES;</li>
+            <li>Set the view frame (always set this as the last property): viewController.view.frame = CGRectMake(0, 0, 320, 480);</li>
+            <li>AddCleavertoyourview:
+                [myView addSubview:viewController.view];</li>
+        </ol>
+        
+        
+        <p>Adding your HTML, CSS and JavaScript assets</p>
+        
+        <ol>
+            <li>Create a new folder in your project on disk, for example, name it &ldquo;www&rdquo;</li>
+            <li>Put your HTML, CSS and JavaScript assets into this folder</li>
+            <li>Drag and drop the folder into the Project Navigator of Xcode</li>
+            <li>Choose the radio-button &ldquo;Create folder references for any added folders&rdquo;</li>
+            <li><p>Set the appropriate &ldquo;wwwFolderName&rdquo; and &ldquo;startPage&rdquo; properties for the folder you created in</p>
+                
+                <p> (1) or use the defaults (see previous section) when you instantiate the CDVViewController.
+                /<em>
+                    if you created a folder called &lsquo;myfolder&rsquo; and you want the file &lsquo;mypage.html&rsquo; in it to be the startPage
+                </em>/
+                viewController.wwwFolderName = @&ldquo;myfolder&rdquo;; viewController.startPage = @&ldquo;mypage.html&rdquo;</p></li>
+        </ol>
+        
+    </body>
+</html>
