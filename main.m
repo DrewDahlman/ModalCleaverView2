@@ -79,7 +79,7 @@
     // Select the transition style
 	int styleSegment = [(UISegmentedControl *)self.navigationItem.titleView selectedSegmentIndex];
     NSLog(@"styleSegment = %i",styleSegment);
-	int transitionStyles[4] = {UIModalTransitionStyleCoverVertical, UIModalTransitionStyleCrossDissolve, UIModalTransitionStyleFlipHorizontal, UIModalTransitionStylePartialCurl};
+	int transitionStyles[3] = {/*UIModalTransitionStyleCoverVertical,*/ UIModalTransitionStyleCrossDissolve, UIModalTransitionStyleFlipHorizontal, UIModalTransitionStylePartialCurl};
     
      UINavigationController *navController = [sb instantiateViewControllerWithIdentifier:@"infoNavigationController"];
         NSLog(@"%@",navController);
@@ -109,7 +109,7 @@
     
     
     
-    if (styleSegment == 4)
+    if (styleSegment == 3)
     {
         NSLog(@"TRUE styleSegment = %i",styleSegment);
 
@@ -168,9 +168,9 @@
 	self.navigationController.navigationBar.tintColor = COOKBOOK_PURPLE_COLOR;
     self.navigationItem.rightBarButtonItem = BARBUTTON(@"Action", @selector(action:));
     
-    
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[@"Slide Fade Flip Curl Cleaver!" componentsSeparatedByString:@" "]];
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[@"Fade Flip Curl Cleaver" componentsSeparatedByString:@" "]];
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    [segmentedControl setSelectedSegmentIndex:3];
 	self.navigationItem.titleView = segmentedControl;
     
     
@@ -179,7 +179,7 @@
     cleaverViewController.wwwFolderName = @"www";
     cleaverViewController.startPage = @"index.html";
     
-    CGRect viewBounds = [[UIScreen mainScreen] bounds];
+    //CGRect viewBounds = [[UIScreen mainScreen] bounds];
     //int x = 100;//viewBounds.size.width * .5;
     //int y = viewBounds.size.width * .5;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -203,6 +203,9 @@
 		iPadStyleControl.segmentedControlStyle = UISegmentedControlStyleBar;
 		iPadStyleControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         iPadStyleControl.center = CGPointMake(CGRectGetMidX(self.view.bounds), 22.0f);
+        [iPadStyleControl setSelectedSegmentIndex:2];
+
+//        [iPadStyleControl.selectedSegmentIndex:1];
 		[self.view addSubview:iPadStyleControl];
 	}
 }
