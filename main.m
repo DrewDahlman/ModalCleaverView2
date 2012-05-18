@@ -115,7 +115,7 @@
 
         CDVViewController* cleaverViewController = [CDVViewController new];
             cleaverViewController.wwwFolderName = @"www";
-            cleaverViewController.startPage = @"index.html";
+            cleaverViewController.startPage = @"page1.html";
             cleaverViewController.modalPresentationStyle = navController.modalPresentationStyle;
     
         CGRect viewBounds = [[UIScreen mainScreen] bounds];
