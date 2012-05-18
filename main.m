@@ -109,8 +109,8 @@
     
     
     
-    if (styleSegment == 3)
-    {
+   // if (styleSegment == 3)
+    //{
         NSLog(@"TRUE styleSegment = %i",styleSegment);
 
         CDVViewController* cleaverViewController = [CDVViewController new];
@@ -134,14 +134,14 @@
        // [self.navigationController presentModalViewController:navController animated:YES];
 
         
-    }
-    else
-    {
+    //}
+    //else
+    //{
     
        // [self.navigationController presentModalViewController:navController animated:YES];
 
     
-    }
+    //}
     
     [self.navigationController presentModalViewController:navController animated:YES];
 
