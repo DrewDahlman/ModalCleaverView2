@@ -168,7 +168,7 @@
 	self.navigationController.navigationBar.tintColor = COOKBOOK_PURPLE_COLOR;
     self.navigationItem.rightBarButtonItem = BARBUTTON(@"Action", @selector(action:));
     
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[@"Fade Flip Curl Cleaver" componentsSeparatedByString:@" "]];
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[@"Fade Flip Curl" componentsSeparatedByString:@" "]];
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [segmentedControl setSelectedSegmentIndex:3];
 	self.navigationItem.titleView = segmentedControl;
