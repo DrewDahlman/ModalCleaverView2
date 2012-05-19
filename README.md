@@ -1,9 +1,29 @@
-Use Cordova 1.7.0+ (iOS) as a component.
+#<center>Rethinking the Hybrid App Paradyne</center><br>
 
 
-![image](https://github.com/RandyMcMillan/ModalCleaverView/raw/master/form.png)
-![image](https://github.com/RandyMcMillan/ModalCleaverView/raw/master/page.png)
-![image](https://github.com/RandyMcMillan/ModalCleaverView/raw/master/full.png)
+
+
+##Use Cordova 1.7.0+ (iOS) as a component.
+
+Reference:
+
+[https://github.com/RandyMcMillan/ModalCleaverView
+](https://github.com/RandyMcMillan/ModalCleaverView
+)
+
+[https://github.com/RandyMcMillan/WikiCleaverView
+](https://github.com/RandyMcMillan/WikiCleaverView
+)
+
+[https://github.com/RandyMcMillan/Cleaver-RSSReader
+](https://github.com/RandyMcMillan/Cleaver-RSSReader
+)
+
+<br>
+
+![image](https://github.com/RandyMcMillan/ModalCleaverView2/raw/master/form.png)
+![image](https://github.com/RandyMcMillan/ModalCleaverView2/raw/master/page.png)
+![image](https://github.com/RandyMcMillan/ModalCleaverView2/raw/master/full.png)
 
 
 The MIT License
